@@ -2,34 +2,30 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>GoEdu-Clone</title>
-   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="style.css" />
    <script>
       document.addEventListener('DOMContentLoaded', function () {
          document.querySelector('.background').src = '../assets/background2.jpg';
 
          const courses = [
             {
-               title: "Web Development 101",
-               description: "Learn the basics of HTML, CSS, and JavaScript to build modern websites.",
-               image: "assets/course1.jpg"
+               title: "Probability Model and Data Analysis",
+               description: "Dive into probability models and learn data analysis techniques."
             },
             {
-               title: "Data Structures",
-               description: "Master arrays, linked lists, stacks, queues, and more with hands-on practice.",
-               image: "assets/course2.jpg"
+               title: "Computer Architecture and Organization",
+               description: "Explore computer architecture concepts and organization principles."
             },
             {
-               title: "Database Systems",
-               description: "Understand relational databases, SQL, and how to manage large datasets.",
-               image: "assets/course3.jpg"
+               title: "Web Programming",
+               description: "Understand web development technologies and best practices."
             },
             {
-               title: "Software Engineering",
-               description: "Explore the software development lifecycle, agile, and project management.",
-               image: "assets/course4.jpg"
+               title: "Data Structure and Algorithms",
+               description: "Master the fundamentals of data structures and algorithm design."
             }
          ];
 
@@ -41,7 +37,6 @@
 
             const header = document.createElement('div');
             header.classList.add('course-card-header');
-            header.style.backgroundImage = `url(${course.image})`;
 
             const overlay = document.createElement('div');
             overlay.classList.add('course-card-overlay');
@@ -62,7 +57,6 @@
          });
       });
    </script>
-
 </head>
 
 <body>
@@ -74,14 +68,13 @@
             <a class="register-button" href="register/register.html">Register</a>
             <img src="assets/user.png" alt="pfp picture" class="pfp">
             <img src="assets/down-arrow.png" alt="drop down arrow" class="drop-down">
-
          </div>
       </div>
       <div class="main">
          <div class="compulsory">
             <img src="assets/SE_logo.png" alt="logo" class="logo">
-            <p class="compulsory-text"><span>S</span>oftware <span style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);
-">E</span>ngineering</p>
+            <p class="compulsory-text"><span>S</span>oftware <span
+                  style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering</p>
          </div>
          <div class="background-scroll">
             <img src="assets/left-arrow.png" alt="left arrow" class="left-arrow">
@@ -101,18 +94,42 @@
                ซึ่งหมายถึงการรับรองการศึกษาที่เท่าเทียมและทั่วถึงควบคู่กับการส่งเสริมการเรียนรู้ตลอดชีวิตแก่ทุกคน
             </p>
          </div>
-         <div class="main-section">
-            <div class="search-bar">
-               <input type="text" placeholder="Search for courses..." />
-               <button>Search</button>
-            </div>
-            <div class="course-grid" id="courseGrid"></div>
-         </div>
-
+      </div>
+      <div class="main-section">
+         <div class="course-grid" id="courseGrid"></div>
       </div>
       <div class="footer">
-
+         <div class="footer-content">
+            <div class="contact-us">
+               <h4>Contact Us</h4>
+               <ul>
+                  <li>Line: <a href="https://line.me/ti/p/your-line-id" target="_blank" rel="noopener">your-line-id</a>
+                  </li>
+                  <li>Phone Tel: <a href="tel:+66000000000">+66 0000 0000</a></li>
+                  <li>Email: <a href="mailto:example@gmail.com">example@gmail.com</a></li>
+               </ul>
+            </div>
+            <div class="get-social">
+               <h4>Get Social</h4>
+               <div class="social-icons">
+                  <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
+                     <img src="assets/facebook-icon.png" alt="Facebook" />
+                  </a>
+                  <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" aria-label="Twitter">
+                     <img src="assets/twitter-icon.png" alt="Twitter" />
+                  </a>
+                  <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram">
+                     <img src="assets/instagram-icon.png" alt="Instagram" />
+                  </a>
+               </div>
+            </div>
+         </div>
+         <hr />
+         <p class="footer-bottom-text">
+            Copyright © 2020 - Developed by สำนักงานบริหารวิชาการและคุณภาพการศึกษา. Powered by Moodle
+         </p>
       </div>
+
    </div>
    <script src="script.js"></script>
 </body>

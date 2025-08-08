@@ -1,5 +1,4 @@
 body {
-   width: 100vw;
    height: 100vh;
    margin: 0;
    padding: 0;
@@ -11,10 +10,10 @@ body {
 }
 
 .header {
+   width: 100%;
    position: absolute;
    background-color: #2f79a3;
    height: 55px;
-   width: 100vw;
    top: 0;
    left: 0;
    display: flex;
@@ -67,7 +66,6 @@ body {
 }
 
 .compulsory {
-   width: 100vw;
    height: 16vh;
    display: flex;
    align-items: center;
@@ -158,7 +156,6 @@ body {
 }
 
 .main-section {
-   height: 100%;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
@@ -202,7 +199,6 @@ body {
    gap: 20px;
    padding: 20px;
    width: 90%;
-   margin: auto;
 }
 
 .course-card {
@@ -240,7 +236,7 @@ body {
    left: 0;
    width: 100%;
    height: 100%;
-   background: linear-gradient(to bottom, rgba(0, 238, 255, 0.5), rgba(3, 35, 37, 0.3));
+   background: rgba(0, 0, 0, 0.4);
    z-index: 1;
 }
 
@@ -252,19 +248,7 @@ body {
    font-weight: bold;
    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
    margin: 0;
-}
 
-
-.course-card img {
-   width: 100%;
-   height: 150px;
-   object-fit: cover;
-}
-
-.course-card h3 {
-   font-size: 18px;
-   margin: 10px;
-   color: rgb(255, 255, 255)
 }
 
 .course-card p {
@@ -285,4 +269,93 @@ body {
    100% {
       background-position: 0% 50%;
    }
+}
+
+.footer {
+   background-color: #2f79a3;
+   color: white;
+   padding: 20px 5vw;
+   font-family: Arial, sans-serif;
+   margin-top: 40px;
+}
+
+.footer-content {
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   gap: 20px;
+   align-items: flex-start;
+}
+
+.contact-us,
+.get-social {
+   flex: 1 1 300px;
+}
+
+.contact-us h4,
+.get-social h4 {
+   margin-bottom: 10px;
+   font-weight: bold;
+   font-size: 18px;
+}
+
+.contact-us ul {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.contact-us ul li {
+   margin-bottom: 8px;
+   font-size: 14px;
+}
+
+.contact-us a {
+   color: white;
+   text-decoration: underline;
+}
+
+.contact-us a:hover {
+   color: #ffd166;
+}
+
+.social-icons a {
+   display: inline-block;
+   margin-right: 15px;
+   transition: transform 0.2s ease-in-out;
+}
+
+.social-icons a:last-child {
+   margin-right: 0;
+}
+
+.social-icons a img {
+   width: 30px;
+   height: 30px;
+   filter: brightness(1) invert(1);
+   /* make sure icons appear white */
+   transition: filter 0.2s ease-in-out;
+}
+
+.social-icons a:hover {
+   transform: scale(1.2);
+}
+
+.social-icons a:hover img {
+   filter: brightness(0.8) invert(0.8);
+}
+
+hr {
+   border: 0;
+   height: 1px;
+   background: white;
+   margin: 20px 0 10px 0;
+   opacity: 0.4;
+}
+
+.footer-bottom-text {
+   font-size: 12px;
+   text-align: center;
+   margin: 0;
+   opacity: 0.7;
 }
