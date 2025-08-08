@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>GoEdu-Clone</title>
    <link rel="stylesheet" href="style.css">
+   <script>
+      document.addEventListener('DOMContentLoaded', function () {
+         document.querySelector('.background').src = '../assets/background2.jpg';
+
+         const courses = [
+            {
+               title: "Web Development 101",
+               description: "Learn the basics of HTML, CSS, and JavaScript to build modern websites.",
+               image: "assets/course1.jpg"
+            },
+            {
+               title: "Data Structures",
+               description: "Master arrays, linked lists, stacks, queues, and more with hands-on practice.",
+               image: "assets/course2.jpg"
+            },
+            {
+               title: "Database Systems",
+               description: "Understand relational databases, SQL, and how to manage large datasets.",
+               image: "assets/course3.jpg"
+            },
+            {
+               title: "Software Engineering",
+               description: "Explore the software development lifecycle, agile, and project management.",
+               image: "assets/course4.jpg"
+            }
+         ];
+
+         const courseGrid = document.getElementById('courseGrid');
+
+         courses.forEach(course => {
+            const card = document.createElement('div');
+            card.classList.add('course-card');
+
+            const header = document.createElement('div');
+            header.classList.add('course-card-header');
+            header.style.backgroundImage = `url(${course.image})`;
+
+            const overlay = document.createElement('div');
+            overlay.classList.add('course-card-overlay');
+
+            const title = document.createElement('h3');
+            title.textContent = course.title;
+
+            header.appendChild(overlay);
+            header.appendChild(title);
+
+            const description = document.createElement('p');
+            description.textContent = course.description;
+
+            card.appendChild(header);
+            card.appendChild(description);
+
+            courseGrid.appendChild(card);
+         });
+      });
+   </script>
+
 </head>
+
 <body>
    <div class="container">
       <div class="header">
@@ -15,12 +74,14 @@
             <a class="register-button" href="register/register.html">Register</a>
             <img src="assets/user.png" alt="pfp picture" class="pfp">
             <img src="assets/down-arrow.png" alt="drop down arrow" class="drop-down">
-            
+
          </div>
       </div>
       <div class="main">
          <div class="compulsory">
-            <img src="assets/65_Year_LOGO-03.png" alt="logo" class="logo">
+            <img src="assets/SE_logo.png" alt="logo" class="logo">
+            <p class="compulsory-text"><span>S</span>oftware <span style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);
+">E</span>ngineering</p>
          </div>
          <div class="background-scroll">
             <img src="assets/left-arrow.png" alt="left arrow" class="left-arrow">
@@ -28,22 +89,32 @@
             <img src="" alt="logo" class="background">
          </div>
          <div class="about-us-container">
-            <span id="about-us-title">KMITL Go Beyond the Limit</span> 
+            <span id="about-us-title">KMITL Go Beyond the Limit</span>
             <p>
-            <b>Go Education</b> ฉลองครบรอบ 60 ปี ภายใต้แนวคิด KMITL GO BEYOND THE LIMIT ไร้ขีดจำกัด 
-            เพื่อพัฒนาศักยภาพของเด็ก นักศึกษา บุคคลทั่วไป ให้มีความพร้อมในการเรียนรู้ และได้รับทักษะที่เหมาะสมต่อการสร้างพัฒนาการที่ดี 
-            โดยเน้นไปที่ด้านวิทยาศาสตร์และเทคโนโลยี ควบคู่กับการเป็นสถาบันการศึกษาที่มีส่วนร่วมในการพัฒนาสังคมและชุมชนที่ยั่งยืน ซึ่งเป็นไปตามเป้าหมายการพัฒนาที่ยั่งยืน (SDGs) 
-            ของสหประชาชาติ ในด้านที่ 4 คือ Quality Education ซึ่งหมายถึงการรับรองการศึกษาที่เท่าเทียมและทั่วถึงควบคู่กับการส่งเสริมการเรียนรู้ตลอดชีวิตแก่ทุกคน
+               <b>Go Education</b> ฉลองครบรอบ 60 ปี ภายใต้แนวคิด KMITL GO BEYOND THE LIMIT ไร้ขีดจำกัด
+               เพื่อพัฒนาศักยภาพของเด็ก นักศึกษา บุคคลทั่วไป ให้มีความพร้อมในการเรียนรู้
+               และได้รับทักษะที่เหมาะสมต่อการสร้างพัฒนาการที่ดี
+               โดยเน้นไปที่ด้านวิทยาศาสตร์และเทคโนโลยี
+               ควบคู่กับการเป็นสถาบันการศึกษาที่มีส่วนร่วมในการพัฒนาสังคมและชุมชนที่ยั่งยืน
+               ซึ่งเป็นไปตามเป้าหมายการพัฒนาที่ยั่งยืน (SDGs)
+               ของสหประชาชาติ ในด้านที่ 4 คือ Quality Education
+               ซึ่งหมายถึงการรับรองการศึกษาที่เท่าเทียมและทั่วถึงควบคู่กับการส่งเสริมการเรียนรู้ตลอดชีวิตแก่ทุกคน
             </p>
          </div>
          <div class="main-section">
-
+            <div class="search-bar">
+               <input type="text" placeholder="Search for courses..." />
+               <button>Search</button>
+            </div>
+            <div class="course-grid" id="courseGrid"></div>
          </div>
+
       </div>
       <div class="footer">
-         
+
       </div>
    </div>
    <script src="script.js"></script>
 </body>
+
 </html>
