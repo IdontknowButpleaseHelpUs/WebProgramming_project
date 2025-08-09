@@ -6,57 +6,6 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>GoEdu-Clone</title>
    <link rel="stylesheet" href="style.css" />
-   <script>
-      document.addEventListener('DOMContentLoaded', function () {
-         document.querySelector('.background').src = '../assets/background2.jpg';
-
-         const courses = [
-            {
-               title: "Probability Model and Data Analysis",
-               description: "Dive into probability models and learn data analysis techniques."
-            },
-            {
-               title: "Computer Architecture and Organization",
-               description: "Explore computer architecture concepts and organization principles."
-            },
-            {
-               title: "Web Programming",
-               description: "Understand web development technologies and best practices."
-            },
-            {
-               title: "Data Structure and Algorithms",
-               description: "Master the fundamentals of data structures and algorithm design."
-            }
-         ];
-
-         const courseGrid = document.getElementById('courseGrid');
-
-         courses.forEach(course => {
-            const card = document.createElement('div');
-            card.classList.add('course-card');
-
-            const header = document.createElement('div');
-            header.classList.add('course-card-header');
-
-            const overlay = document.createElement('div');
-            overlay.classList.add('course-card-overlay');
-
-            const title = document.createElement('h3');
-            title.textContent = course.title;
-
-            header.appendChild(overlay);
-            header.appendChild(title);
-
-            const description = document.createElement('p');
-            description.textContent = course.description;
-
-            card.appendChild(header);
-            card.appendChild(description);
-
-            courseGrid.appendChild(card);
-         });
-      });
-   </script>
 </head>
 
 <body>
@@ -65,7 +14,6 @@
          <img src="assets/menu.png" alt="menu logo" class="menu-logo">
          <div class="right-header-items">
             <a class="login-button" href="login/login.html">Login</a>
-            <a class="register-button" href="register/register.html">Register</a>
             <img src="assets/user.png" alt="pfp picture" class="pfp">
             <img src="assets/down-arrow.png" alt="drop down arrow" class="drop-down">
          </div>
@@ -96,6 +44,11 @@
          </div>
       </div>
       <div class="main-section">
+         <div class="search-bar">
+            <input type="text" placeholder="Search for courses..." />
+            <button>Search</button>
+         </div>
+         <p id="course-title">My Course</p>
          <div class="course-grid" id="courseGrid"></div>
       </div>
       <div class="footer">
@@ -112,14 +65,14 @@
             <div class="get-social">
                <h4>Get Social</h4>
                <div class="social-icons">
-                  <a href="https://facebook.com/yourpage" target="_blank" rel="noopener" aria-label="Facebook">
-                     <img src="assets/facebook-icon.png" alt="Facebook" />
+                  <a href="https://www.facebook.com/kmitlofficial" target="_blank" rel="noopener" aria-label="Facebook">
+                     <img src="assets/facebook.png" alt="Facebook" />
                   </a>
-                  <a href="https://twitter.com/yourhandle" target="_blank" rel="noopener" aria-label="Twitter">
-                     <img src="assets/twitter-icon.png" alt="Twitter" />
+                  <a href="https://x.com/Kmitlofficial" target="_blank" rel="noopener" aria-label="Twitter">
+                     <img src="assets/twitter.png" alt="Twitter" />
                   </a>
-                  <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener" aria-label="Instagram">
-                     <img src="assets/instagram-icon.png" alt="Instagram" />
+                  <a href="https://www.instagram.com/kmitlofficial" target="_blank" rel="noopener" aria-label="Instagram">
+                     <img src="assets/instagram.png" alt="Instagram" />
                   </a>
                </div>
             </div>

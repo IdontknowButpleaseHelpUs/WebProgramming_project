@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>Course Details</title>
+   <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body>
+   <div class="container">
+      <div class="header">
+         <img src="../assets/menu.png" alt="menu logo" class="menu-logo">
+         <div class="right-header-items">
+            <a class="login-button" href="login/login.html">Login</a>
+            <img src="../assets/user.png" alt="pfp picture" class="pfp">
+            <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down">
+         </div>
+      </div>
+      <div class="main">
+         <div class="compulsory">
+            <img src="../assets/SE_logo.png" alt="logo" class="logo">
+            <p class="compulsory-text">
+               <a href="../page1.html" style="text-decoration: none; color: inherit;">
+                  <span>S</span>oftware <span style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering
+               </a>
+            </p>
+         </div>
+      </div>
+      
+      <div class="course-details">
+         <h2 id="courseTitle"></h2>
+         <p id="courseDescription"></p>
+      </div>
+   </div>
+   <script src="../script.js">
+      // Function to get query parameters
+      function getQueryParams() {
+         const params = {};
+         const queryString = window.location.search.substring(1);
+         const regex = /([^&=]+)=([^&]*)/g;
+         let m;
+         while (m = regex.exec(queryString)) {
+            params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+         }
+         return params;
+      }
+
+      // Get course details from query parameters
+      const params = getQueryParams();
+      document.getElementById('courseTitle').textContent = params.title || 'Course Title';
+      document.getElementById('courseDescription').textContent = params.description || 'Course Description';
+
+      // Back button functionality
+      document.getElementById('backButton').addEventListener('click', function () {
+         window.history.back(); // Go back to the previous page
+      });
+   </script>
+</body>
+
+</html>

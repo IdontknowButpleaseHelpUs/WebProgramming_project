@@ -193,6 +193,13 @@ body {
    background-color: #245f81;
 }
 
+#course-title {
+   font-size: 30px;
+   font-weight: bold;
+   margin-bottom: 20px;
+   color: red;
+}
+
 .course-grid {
    display: grid;
    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -236,7 +243,7 @@ body {
    left: 0;
    width: 100%;
    height: 100%;
-   background: rgba(0, 0, 0, 0.4);
+   background: rgba(255, 255, 255, 0.4);
    z-index: 1;
 }
 
@@ -332,8 +339,7 @@ body {
 .social-icons a img {
    width: 30px;
    height: 30px;
-   filter: brightness(1) invert(1);
-   /* make sure icons appear white */
+   filter: brightness(1);
    transition: filter 0.2s ease-in-out;
 }
 
@@ -342,7 +348,7 @@ body {
 }
 
 .social-icons a:hover img {
-   filter: brightness(0.8) invert(0.8);
+   filter: brightness(0.8);
 }
 
 hr {
