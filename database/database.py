@@ -14,6 +14,18 @@ courses = {
     "course4": {
         "title": "Data Structure and Algorithms",
         "description": "Master the fundamentals of data structures and algorithm design."
+    },
+    "course5": {
+        "title": "Operating System",
+        "description": "Learn the concepts of operating systems and how to use them effectively."
+    },
+    "course6": {
+        "title": "Database Management",
+        "description": "Learn how to manage and analyze databases."
+    },
+    "course7": {
+        "title": "Artificial Intelligence",
+        "description": "Introduction to the concepts of AI and how it applies to real world problems."
     }
 }
 
