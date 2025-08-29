@@ -1,0 +1,182 @@
+/* Reset & basics */
+body {
+   height: 100vh;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   font-family: Arial, sans-serif;
+   background-color: rgb(241, 241, 241);
+}
+
+.header {
+   width: 100%;
+   position: absolute;
+   background-color: #2f79a3;
+   height: 55px;
+   top: 0;
+   left: 0;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-right: 4vw;
+   box-sizing: border-box;
+   font-family: Arial, sans-serif;
+}
+
+.menu-logo {
+   height: 30px;
+   margin-left: 15vw;
+   cursor: pointer;
+   transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.right-header-items {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   font-family: Arial, sans-serif;
+}
+
+.pfp {
+   height: 30px;
+   transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.go-back-button {
+   cursor: pointer;
+   margin-right: 50px;
+   text-decoration: none;
+   color: rgb(0, 0, 0);
+   transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+   font-family: Arial, sans-serif;
+}
+
+.go-back-button:hover {
+   text-decoration: underline;
+   color: aliceblue;
+}
+
+.drop-down {
+   height: 30px;
+   cursor: pointer;
+   transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.compulsory {
+   height: 16vh;
+   display: flex;
+   align-items: center;
+   margin-top: 55px;
+   background-color: #449ccf;
+   font-family: Arial, sans-serif;
+}
+
+.compulsory span {
+   font-size: 60px;
+}
+
+.compulsory p {
+   font-size: 50px;
+   font-weight: bold;
+   margin-left: 5rem;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+   height: 100px;
+   width: 120px;
+   border-radius: 50%;
+   overflow: hidden;
+   margin-left: 5rem;
+   box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container {
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+/* Container for the login card */
+.login-container {
+   background-color: white;
+   padding: 40px 30px;
+   border-radius: 15px;
+   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+   width: 300px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 20px;
+}
+
+/* Header */
+.login-container h2 {
+   margin: 0;
+   font-size: 28px;
+   color: #2f79a3;
+   text-align: center;
+}
+
+/* Input fields */
+.login-container input {
+   width: 100%;
+   padding: 12px;
+   border-radius: 8px;
+   border: 1px solid #ccc;
+   font-size: 14px;
+   box-sizing: border-box;
+   transition: border-color 0.2s ease-in-out;
+}
+
+.login-container input:focus {
+   border-color: #2f79a3;
+   outline: none;
+}
+
+/* Button */
+.login-container button {
+   width: 100%;
+   padding: 12px;
+   border: none;
+   border-radius: 8px;
+   background-color: #2f79a3;
+   color: white;
+   font-size: 16px;
+   cursor: pointer;
+   transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.login-container button:hover {
+   background-color: #245f81;
+   transform: translateY(-2px);
+}
+
+/* Status message */
+#status {
+   font-size: 14px;
+   margin-top: 10px;
+   text-align: center;
+}
+
+/* Link to go back or forgot password */
+.login-container a {
+   font-size: 14px;
+   color: #2f79a3;
+   text-decoration: none;
+   transition: color 0.2s ease-in-out;
+}
+
+.login-container a:hover {
+   color: #245f81;
+   text-decoration: underline;
+}
+
+#loginForm {
+   display: flex;
+   flex-direction: column;
+   gap: 30px;
+}
