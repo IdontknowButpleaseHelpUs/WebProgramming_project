@@ -43,8 +43,7 @@ body {
    transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.login-button,
-.register-button {
+.login-button {
    cursor: pointer;
    margin-right: 50px;
    text-decoration: none;
@@ -53,8 +52,7 @@ body {
    font-family: Arial, sans-serif;
 }
 
-.login-button:hover,
-.register-button:hover {
+.login-button:hover {
    text-decoration: underline;
    color: aliceblue;
 }

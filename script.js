@@ -12,29 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
    document.querySelector(".background").src = "../assets/background2.jpg";
 
-   const courses = [
-      {
-         title: "Probability Model and Data Analysis",
-         description:
-            "Dive into probability models and learn data analysis techniques.",
-      },
-      {
-         title: "Computer Architecture and Organization",
-         description:
-            "Explore computer architecture concepts and organization principles.",
-      },
-      {
-         title: "Web Programming",
-         description:
-            "Understand web development technologies and best practices.",
-      },
-      {
-         title: "Data Structure and Algorithms",
-         description:
-            "Master the fundamentals of data structures and algorithm design.",
-      },
-   ];
-
    fetch("http://127.0.0.1:5000/api/courses")
       .then((res) => res.json())
       .then((data) => {
