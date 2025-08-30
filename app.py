@@ -49,7 +49,7 @@ def admin_login():
    # Check credentials
    for admin in admins.values():
       if admin['username'] == username and admin['password'] == password:
-            return jsonify({"success": True, "message": "Login successful"})
+            return jsonify({"success": True, "message": "Login successful", "username":username})
    
    return jsonify({"success": False, "message": "Invalid username or password"})
 

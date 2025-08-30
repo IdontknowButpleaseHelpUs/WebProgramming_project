@@ -1,24 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Admin Login</title>
-      <link rel="stylesheet" href="../style.css">
-   </head>
-   <body>
-      <div class="header">
-         <img src="../assets/menu.png" alt="menu logo" class="menu-logo">
-         <div class="right-header-items">
-            <img src="../assets/user.png" alt="pfp picture" class="pfp">
-            <img src="../assets/down-arrow.png" alt="drop down arrow"
-               class="drop-down">
-         </div>
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Admin Login</title>
+   <link rel="stylesheet" href="../style.css">
+   <script src="script-admin.js"></script>
+</head>
+
+<body>
+   <div class="header">
+      <img src="../assets/menu.png" alt="menu logo" class="menu-logo">
+      <div class="right-header-items">
+         <img src="../assets/user.png" alt="pfp picture" class="pfp">
+         <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down" id="dropdown">
       </div>
-      <div class="compulsory">
-         <img src="../assets/SE_logo.png" alt="logo" class="logo">
-         <p class="compulsory-text"><span>S</span>oftware <span
-               style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering</p>
-      </div>
-   </body>
+   </div>
+   <div class="compulsory">
+      <img src="../assets/SE_logo.png" alt="logo" class="logo">
+      <p class="compulsory-text"><span>S</span>oftware <span
+            style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering</p>
+      <p id="welcome-text" style="font-size:30px; margin-top:3rem; margin-left:30rem;"></p>
+   </div>
+   <div class="dropdown-content" id="dropdown-content">
+      <a href="#" class="logout">Log out</a>
+   </div>
+   <style>
+      .dropdown-content {
+         display: none;
+         position: absolute;
+         background-color: #f1f1f1;
+         min-width: 160px;
+         box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+         z-index: 1;
+      }
+
+      .dropdown-content.show {
+         display: block;
+      }
+
+      .dropdown-content a {
+         color: black;
+         padding: 12px 16px;
+         text-decoration: none;
+         display: block;
+      }
+
+      .dropdown-content a:hover {
+         background-color: #ddd;
+      }
+   </style>
+</body>
+
 </html>
+

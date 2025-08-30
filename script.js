@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-   // Existing click handlers
    document.querySelector(".menu-logo").addEventListener("click", function () {
       this.style.filter = this.style.filter === "" ? "invert(100%)" : "";
       this.style.transform = this.style.transform === "" ? "rotate(-90deg)" : "";
