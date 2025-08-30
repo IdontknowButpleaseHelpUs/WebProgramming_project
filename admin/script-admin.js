@@ -11,9 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
    const adminName = localStorage.getItem('adminUsername');
    const welcomeText = document.getElementById('welcome-text');
+   const username_dispaly = document.getElementById('logged-username');
 
    if (adminName) {
-      welcomeText.textContent = `Welcome Admin: ${adminName}`;
+      const capitalizedAdminName = adminName[0].toUpperCase() + adminName.slice(1);
+      welcomeText.textContent = `Welcome Admin: ${capitalizedAdminName}`;
+      username_dispaly.textContent = capitalizedAdminName;
+      
    } else {
       welcomeText.textContent = 'Welcome Admin';
    }
@@ -30,7 +34,15 @@ document.addEventListener("DOMContentLoaded", function () {
    logoutLink.addEventListener('click', (e) => {
       e.preventDefault();
       localStorage.removeItem('adminUsername');
-      window.location.href = '../login/login.html';
+      setTimeout(() => {
+         window.location.href = '../login/login.html';
+      }, 1000);
    });
+   const settingLink = document.querySelector('.setting');
+   settingLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = '../setting/setting.html';
+   });
+
 });
 

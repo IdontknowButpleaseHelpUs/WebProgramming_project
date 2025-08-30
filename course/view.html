@@ -35,7 +35,6 @@
       </div>
    </div>
    <script src="../script.js">
-      // Function to get query parameters
       function getQueryParams() {
          const params = {};
          const queryString = window.location.search.substring(1);
@@ -47,14 +46,12 @@
          return params;
       }
 
-      // Get course details from query parameters
       const params = getQueryParams();
       document.getElementById('courseTitle').textContent = params.title || 'Course Title';
       document.getElementById('courseDescription').textContent = params.description || 'Course Description';
 
-      // Back button functionality
       document.getElementById('backButton').addEventListener('click', function () {
-         window.history.back(); // Go back to the previous page
+         window.history.back();
       });
    </script>
 </body>
