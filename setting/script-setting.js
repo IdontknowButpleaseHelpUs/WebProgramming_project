@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.querySelector(".menu-logo").addEventListener("click", function () {
-      this.style.filter = this.style.filter === "" ? "invert(100%)" : "";
-      this.style.transform = this.style.transform === "" ? "rotate(-90deg)" : "";
+        this.style.filter = this.style.filter === "" ? "invert(100%)" : "";
+        this.style.transform = this.style.transform === "" ? "rotate(-90deg)" : "";
     });
 
     document.querySelector(".drop-down").addEventListener("click", function () {
@@ -23,13 +23,18 @@ document.addEventListener("DOMContentLoaded", function () {
         e.preventDefault();
         dropdownContent.classList.toggle('show');
     });
+
     const gobackbtn = document.querySelector('.goback');
     const changeBtn = document.getElementById('change-pfp-btn');
     const accountTitle = document.getElementById('account-title');
     const uploadInput = document.getElementById('upload-profile');
     const profileImg = document.getElementById('profile-img');
+    const loggedusername = document.getElementById('logged-username');
+    const pfp = document.getElementById('pfp');
     const saveBtn = document.getElementById('save-changes');
     const inputs = document.querySelectorAll('input[data-field], textarea[data-field]');
+    const welcomeText = document.getElementById('welcome-text');
+    const username_dispaly = document.getElementById('logged-username');
 
     const logoutLink = document.querySelector('.logout');
     logoutLink.addEventListener('click', (e) => {
@@ -40,6 +45,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
     });
 
+    if (adminName) {
+        const capitalizedAdminName = adminName[0].toUpperCase() + adminName.slice(1);
+        welcomeText.textContent = `Welcome Admin: ${capitalizedAdminName}`;
+        username_dispaly.textContent = capitalizedAdminName;
+
+    } else {
+        welcomeText.textContent = 'Welcome Admin';
+    }
     gobackbtn.addEventListener('click', (e) => {
         e.preventDefault();
         window.history.back();
@@ -70,6 +83,9 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!res.ok) throw new Error("Failed to load profile");
             const data = await res.json();
 
+            document.getElementById('first-name').value = data.firstName || '';
+            document.getElementById('last-name').value = data.lastName || '';
+
             inputs.forEach(input => {
                 const field = input.getAttribute('data-field');
                 if (data[field]) input.value = data[field];
@@ -77,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (data.profilePic) {
                 profileImg.src = data.profilePic;
+                pfp.src = data.profilePic;
             }
         } catch (error) {
             console.error(error);
@@ -84,22 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
     loadProfile();
-
-    uploadInput.addEventListener('change', () => {
-        if (uploadInput.files.length > 0) {
-            const file = uploadInput.files[0];
-            if (file.type === "image/png" || file.type === "image/jpeg") {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    profileImg.src = e.target.result;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                alert("Please select a valid PNG or JPG image.");
-                uploadInput.value = "";
-            }
-        }
-    });
 
     // Save Changes
     saveBtn.addEventListener('click', async () => {
@@ -160,4 +161,5 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Error updating profile.");
         }
     });
+
 });
