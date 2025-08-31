@@ -4,3 +4,6 @@
 /database
 database/admins.json
 *.json
+/database
+*.json
+database/admins.json

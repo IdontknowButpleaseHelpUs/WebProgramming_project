@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Settings</title>
    <link rel="stylesheet" href="../style.css">
-   <script src="../setting/script-setting.js"></script>
+   <script src="../setting/script-setting.js" defer></script>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
       <img src="../assets/menu.png" alt="menu logo" class="menu-logo">
       <div class="right-header-items">
          <p id="logged-username"></p>
-         <img src="../assets/user.png" alt="pfp picture" class="pfp">
+         <img src="../assets/user.png" alt="pfp picture" class="pfp" id="pfp">
          <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down" id="dropdown">
       </div>
    </div>
@@ -25,7 +25,7 @@
       <p id="welcome-text" style="font-size:30px; margin-top:3rem; margin-left:30rem;"></p>
    </div>
    <div class="dropdown-content" id="dropdown-content">
-      <a href="#" class="goback">Go back</a>      
+      <a href="#" class="goback">Go back</a>
       <a href="#" class="logout">Log out</a>
    </div>
    <div class="settings-container">
@@ -41,31 +41,32 @@
          <div class="account-details">
             <div class="detail-row">
                <label>First Name:</label>
-               <input type="text" id="first-name" placeholder="John">
+               <input type="text" id="first-name" readonly>
             </div>
             <div class="detail-row">
                <label>Last Name:</label>
-               <input type="text" id="last-name" placeholder="Doe">
+               <input type="text" id="last-name" readonly>
             </div>
             <div class="detail-row">
                <label>Email:</label>
-               <input type="email" id="email" placeholder="admin@example.com">
+               <input type="email" id="email" data-field="email" placeholder="admin@example.com">
             </div>
             <div class="detail-row">
                <label>Location:</label>
-               <input type="text" id="location" placeholder="New York">
+               <input type="text" id="location" data-field="location" placeholder="New York">
             </div>
             <div class="detail-row">
                <label>Country:</label>
-               <input type="text" id="country" placeholder="USA">
+               <input type="text" id="country" data-field="country" placeholder="USA">
             </div>
             <div class="detail-row">
                <label>Phone:</label>
-               <input type="text" id="phone" placeholder="+1 234 567 890">
+               <input type="text" id="phone" data-field="phone" placeholder="+1 234 567 890">
             </div>
             <div class="detail-row">
                <label>Description:</label>
-               <textarea id="description" rows="3" placeholder="Account description..."></textarea>
+               <textarea id="description" data-field="description" rows="3"
+                  placeholder="Account description..."></textarea>
             </div>
          </div>
       </div>
