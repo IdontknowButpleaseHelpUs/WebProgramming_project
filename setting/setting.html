@@ -6,7 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Settings</title>
    <link rel="stylesheet" href="../style.css">
-   <script src="../admin/script-admin.js"></script>
+   <script src="../setting/script-setting.js"></script>
 </head>
 
 <body>
@@ -25,10 +25,74 @@
       <p id="welcome-text" style="font-size:30px; margin-top:3rem; margin-left:30rem;"></p>
    </div>
    <div class="dropdown-content" id="dropdown-content">
+      <a href="#" class="goback">Go back</a>      
       <a href="#" class="logout">Log out</a>
-      <a href="#" class="setting">Settings</a>
    </div>
+   <div class="settings-container">
+      <h2 id="account-title">Account Settings</h2>
+
+      <div class="profile-section">
+         <div class="profile-picture">
+            <img src="../assets/user.png" alt="Profile Picture" id="profile-img">
+            <input type="file" id="upload-profile" accept=".png, .jpg, .jpeg" hidden>
+            <button id="change-pfp-btn">Change Picture</button>
+         </div>
+
+         <div class="account-details">
+            <div class="detail-row">
+               <label>First Name:</label>
+               <input type="text" id="first-name" placeholder="John">
+            </div>
+            <div class="detail-row">
+               <label>Last Name:</label>
+               <input type="text" id="last-name" placeholder="Doe">
+            </div>
+            <div class="detail-row">
+               <label>Email:</label>
+               <input type="email" id="email" placeholder="admin@example.com">
+            </div>
+            <div class="detail-row">
+               <label>Location:</label>
+               <input type="text" id="location" placeholder="New York">
+            </div>
+            <div class="detail-row">
+               <label>Country:</label>
+               <input type="text" id="country" placeholder="USA">
+            </div>
+            <div class="detail-row">
+               <label>Phone:</label>
+               <input type="text" id="phone" placeholder="+1 234 567 890">
+            </div>
+            <div class="detail-row">
+               <label>Description:</label>
+               <textarea id="description" rows="3" placeholder="Account description..."></textarea>
+            </div>
+         </div>
+      </div>
+
+      <div class="password-section">
+         <h3>Password</h3>
+         <p>Your current password is hidden for security reasons.</p>
+         <button id="request-password-change">Request Password Change</button>
+      </div>
+
+      <div class="save-section">
+         <button id="save-changes">Save Changes</button>
+      </div>
+   </div>
+
+   <div id="password-modal" class="modal">
+      <div class="modal-content">
+         <h3>Request Password Change</h3>
+         <p>Please confirm your email to request a password reset.</p>
+         <input type="email" id="password-email" placeholder="Enter your email" required>
+         <div class="modal-actions">
+            <button id="cancel-request">Cancel</button>
+            <button id="confirm-request">Confirm</button>
+         </div>
+      </div>
+   </div>
+
 </body>
 
 </html>
-
