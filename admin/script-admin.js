@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
    const adminName = localStorage.getItem('adminUsername');
    const welcomeText = document.getElementById('welcome-text');
    const username_dispaly = document.getElementById('logged-username');
+   const pfp_pic = document.getElementById('pfp');
 
    if (adminName) {
       const capitalizedAdminName = adminName[0].toUpperCase() + adminName.slice(1);
       welcomeText.textContent = `Welcome Admin: ${capitalizedAdminName}`;
       username_dispaly.textContent = capitalizedAdminName;
-      
+
    } else {
       welcomeText.textContent = 'Welcome Admin';
    }
@@ -38,11 +39,28 @@ document.addEventListener("DOMContentLoaded", function () {
          window.location.href = '../login/login.html';
       }, 1000);
    });
+
    const settingLink = document.querySelector('.setting');
    settingLink.addEventListener('click', (e) => {
       e.preventDefault();
       window.location.href = '../setting/setting.html';
    });
+
+   async function loadProfile() {
+      try {
+         const res = await fetch(`http://127.0.0.1:5000/api/admin/${adminName}`);
+         if (!res.ok) throw new Error("Failed to load profile");
+         const data = await res.json();
+
+         if (data.profilePic) {
+            pfp_pic.src = data.profilePic;
+         }
+      } catch (error) {
+         console.error(error);
+         alert("Error loading profile data.");
+      }
+   }
+   loadProfile();
 
 });
 
