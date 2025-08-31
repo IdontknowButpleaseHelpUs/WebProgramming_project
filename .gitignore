@@ -3,3 +3,4 @@
 *.png
 /database
 database/admins.json
+*.json
