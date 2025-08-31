@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.filter = this.style.filter === "" ? "invert(100%)" : "";
       this.style.transform = this.style.transform === "" ? "rotate(-90deg)" : "";
    });
+   
+   document.querySelector(".background").src = "../assets/background2.jpg";
 
    document.querySelector(".drop-down").addEventListener("click", function () {
       this.style.filter = this.style.filter === "" ? "invert(100%)" : "";
       this.style.transform = this.style.transform === "" ? "rotate(-180deg)" : "";
    });
-   document.querySelector(".background").src = "../assets/background2.jpg";
 
    const dropdown = document.getElementById('dropdown');
    const dropdownContent = document.getElementById('dropdown-content');
