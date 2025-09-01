@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
       this.style.filter = this.style.filter === "" ? "invert(100%)" : "";
       this.style.transform = this.style.transform === "" ? "rotate(-90deg)" : "";
    });
-   
+
    document.querySelector(".background").src = "../assets/background2.jpg";
 
    document.querySelector(".drop-down").addEventListener("click", function () {
@@ -42,8 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
             const title = document.createElement("h3");
             title.textContent = course.title;
 
+            const courseId = document.createElement("span");
+            courseId.classList.add("course-id");
+            courseId.textContent = course.courseid;
+
             header.appendChild(overlay);
             header.appendChild(title);
+            header.appendChild(courseId);
 
             const description = document.createElement("p");
             description.textContent = course.description;
@@ -55,7 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             card.addEventListener("click", function () {
                const courseTitle = encodeURIComponent(course.title);
-               window.location.href = `course/view.html?title=${courseTitle}`;
+               const courseId = encodeURIComponent(course.courseid);
+               window.location.href = `course/view.html?id=${courseId}`;
             });
          });
       })
