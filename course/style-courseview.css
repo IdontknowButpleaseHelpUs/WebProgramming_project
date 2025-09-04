@@ -1,0 +1,91 @@
+.course-details {
+   max-width: 900px;
+   margin: 40px auto;
+   padding: 20px;
+   background: #fefefe;
+   border-radius: 15px;
+   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+   font-family: 'Arial', sans-serif;
+}
+
+.course-details h2 {
+   font-size: 2em;
+   margin-bottom: 10px;
+   background: linear-gradient(90deg, #01fffb, #6a3c00);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+}
+
+.course-details p {
+   font-size: 1em;
+   margin: 5px 0;
+   line-height: 1.5;
+}
+
+.course-details .course-info {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 20px;
+   margin-top: 20px;
+}
+
+.course-details .course-info p {
+   flex: 1 1 200px;
+   background: #f4f4f4;
+   padding: 10px 15px;
+   border-radius: 10px;
+   box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+#backButton {
+   margin-top: 30px;
+   padding: 12px 25px;
+   background: #2f79a3;
+   color: white;
+   border: none;
+   border-radius: 10px;
+   font-size: 1em;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+#backButton:hover {
+   background: #256082;
+   transform: scale(1.05);
+}
+
+/* Homework / files section */
+.homework-section {
+   margin-top: 30px;
+}
+
+.homework-section h3 {
+   font-size: 1.5em;
+   margin-bottom: 15px;
+}
+
+.homework-section ul {
+   list-style: none;
+   padding: 0;
+}
+
+.homework-section li {
+   background: #f4f4f4;
+   margin-bottom: 10px;
+   padding: 10px 15px;
+   border-radius: 8px;
+   box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.homework-section li a {
+   color: #ff6f00;
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.homework-section li a:hover {
+   text-decoration: underline;
+}

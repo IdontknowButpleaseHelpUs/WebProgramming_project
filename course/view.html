@@ -6,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>Course Details</title>
    <link rel="stylesheet" href="../style.css" />
+   <link rel="stylesheet" href="style-courseview.css">
 </head>
 
 <body>
@@ -13,7 +14,7 @@
       <div class="header">
          <img src="../assets/menu.png" alt="menu logo" class="menu-logo">
          <div class="right-header-items">
-            <a class="login-button" href="login/login.html">Login</a>
+            <a class="login-button" href="../login/login.html">Login</a>
             <img src="../assets/user.png" alt="pfp picture" class="pfp">
             <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down">
          </div>
@@ -23,15 +24,27 @@
             <img src="../assets/SE_logo.png" alt="logo" class="logo">
             <p class="compulsory-text">
                <a href="../page1.html" style="text-decoration: none; color: inherit;">
-                  <span>S</span>oftware <span style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering
+                  <span>S</span>oftware <span
+                     style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering
                </a>
             </p>
          </div>
       </div>
-      
+
       <div class="course-details">
-         <h2 id="courseTitle"></h2>
+         <h2 id="courseTitle">Loading...</h2>
          <p id="courseDescription"></p>
+         <p><b>Course ID:</b> <span id="courseId"></span></p>
+         <p><b>Lecturer:</b> <span id="courseLecturer"></span></p>
+         <p><b>Credits:</b> <span id="courseCredits"></span></p>
+         <p><b>Schedule:</b> <span id="courseSchedule"></span></p>
+         <button id="backButton">Back</button>
+         <div class="homework-section">
+            <h3>Homework & Files</h3>
+            <ul id="homeworkList">
+               <li>No homework uploaded yet <li>
+            </ul>
+         </div>
       </div>
    </div>
    <script src="../script.js">
@@ -52,6 +65,51 @@
 
       document.getElementById('backButton').addEventListener('click', function () {
          window.history.back();
+      });
+   </script>
+   <script>
+      document.addEventListener("DOMContentLoaded", () => {
+         const params = new URLSearchParams(window.location.search);
+         const courseId = params.get("id"); // this is the id we sent
+
+         if (!courseId) {
+            alert("No course ID provided!");
+            return;
+         }
+
+         fetch("http://127.0.0.1:5000/api/courses")
+            .then(res => res.json())
+            .then(courses => {
+               // find the course with this id
+               const course = Object.values(courses).find(c => c.courseid === courseId);
+               if (!course) throw new Error("Course not found!");
+
+               document.getElementById("courseTitle").textContent = course.title;
+               document.getElementById("courseDescription").textContent = course.description;
+               document.getElementById("courseId").textContent = course.courseid;
+               document.getElementById("courseLecturer").textContent = course.lecturer;
+               document.getElementById("courseCredits").textContent = course.credit;
+               document.getElementById("courseSchedule").textContent = course.schedule;
+            })
+            .catch(err => console.error(err));
+
+         document.getElementById("backButton").addEventListener("click", () => {
+            window.history.back();
+         });
+      });
+      // Example: we will fetch homework later; for now, add dummy items
+      const homeworkList = document.getElementById("homeworkList");
+      const dummyFiles = [
+         { title: "Homework 1 - Probability", link: "#" },
+         { title: "Lecture Slides - Week 1", link: "#" },
+         { title: "Assignment 2 - Data Analysis", link: "#" }
+      ];
+
+      homeworkList.innerHTML = ""; // clear placeholder
+      dummyFiles.forEach(file => {
+         const li = document.createElement("li");
+         li.innerHTML = `${file.title} <a href="${file.link}" target="_blank">Download</a>`;
+         homeworkList.appendChild(li);
       });
    </script>
 </body>
