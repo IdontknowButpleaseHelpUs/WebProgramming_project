@@ -2,10 +2,6 @@
 /database/__pycache__
 *.png
 /database
-database/admins.json
 *.json
-/database
-*.json
-database/admins.json
-/database
-database/admins.json
+
+
