@@ -4,7 +4,7 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Admin Login</title>
+   <title>Login</title>
    <link rel="stylesheet" href="login.css">
 </head>
 
@@ -17,11 +17,15 @@
          <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down">
       </div>
    </div>
+
    <div class="compulsory">
       <img src="../assets/SE_logo.png" alt="logo" class="logo">
-      <p class="compulsory-text"><span>S</span>oftware <span
-            style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering</p>
+      <p class="compulsory-text">
+         <span>S</span>oftware
+         <span style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering
+      </p>
    </div>
+
    <div class="container">
       <div class="login-container">
          <h2>Login</h2>
@@ -45,21 +49,27 @@
          const password = document.getElementById('password').value;
 
          try {
-            const res = await fetch('http://127.0.0.1:5000/api/admin-login', {
+            const res = await fetch('http://127.0.0.1:5000/api/login', {
                method: 'POST',
                headers: { 'Content-Type': 'application/json' },
                body: JSON.stringify({ username, password })
             });
 
             const data = await res.json();
+
             if (data.success) {
                status.textContent = data.message;
                status.style.color = 'green';
 
-               localStorage.setItem('adminUsername', username);
-
+               localStorage.setItem('username', username);
+               localStorage.setItem('role', data.role);
+               console.log(data.role);
                setTimeout(() => {
-                  window.location.href = '../admin/admin.html';
+                  if (data.role === "admin") {
+                     window.location.href = "../admin/admin.html";
+                  } else if (data.role === "student") {
+                     window.location.href = "../user/userDashboard.html";
+                  }
                }, 1000);
             } else {
                status.textContent = data.message;
@@ -71,7 +81,6 @@
          }
       });
    </script>
-
 </body>
 
 </html>

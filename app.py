@@ -6,7 +6,7 @@ import os
 import uuid
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "*"}}, allow_headers=["Content-Type"], supports_credentials=True)
 
 COURSES_FILE = "database/courses.json"
 USERS_FILE = "database/users.json"
@@ -24,25 +24,31 @@ def load_json(filename):
             return json.load(file)
    return {}
 
+
 def save_json(filename, data):
    with open(filename, "w", encoding="utf-8") as file:
       json.dump(data, file, indent=4, ensure_ascii=False)
 
+
 def allowed_file(filename):
    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
 
 @app.route("/")
 def index():
    return render_template("page1.html")
 
+
 @app.route("/admin")
 def admin_panel():
    return render_template("page1.html")
+
 
 @app.route("/api/courses", methods=["GET"])
 def get_courses():
    courses = load_json(COURSES_FILE)
    return jsonify(list(courses.values()))
+
 
 @app.route("/api/courses", methods=["POST"])
 def add_course():
@@ -52,6 +58,7 @@ def add_course():
    courses[new_id] = new_course
    save_json(COURSES_FILE, courses)
    return jsonify({"success": True, "course": new_course}), 201
+
 
 @app.route("/api/courses/<courseid>", methods=["PUT"])
 def update_course(courseid):
@@ -64,6 +71,7 @@ def update_course(courseid):
             return jsonify({"success": True, "course": courses[cid]})
    return jsonify({"success": False, "message": "Course not found"}), 404
 
+
 @app.route("/api/courses/<courseid>", methods=["DELETE"])
 def delete_course(courseid):
    courses = load_json(COURSES_FILE)
@@ -74,21 +82,29 @@ def delete_course(courseid):
             return jsonify({"success": True, "deleted": deleted})
    return jsonify({"success": False, "message": "Course not found"}), 404
 
+
 @app.route("/api/users", methods=["GET"])
 def get_users():
    users = load_json(USERS_FILE)
    return jsonify(users)
 
-@app.route("/api/admin-login", methods=["POST"])
-def admin_login():
+@app.route("/api/login", methods=["GET","POST"])
+def login():
    data = request.json
    username = data.get("username")
    password = data.get("password")
+   
    admins = load_json(ADMINS_FILE)
    for admin in admins.values():
       if admin["username"] == username and admin["password"] == password:
-            return jsonify({"success": True, "message": "Login successful", "username": username})
-   return jsonify({"success": False, "message": "Invalid username or password"})
+         return jsonify({"success": True, "role": "admin", "message": "Admin logged in"})
+
+   users = load_json(USERS_FILE)
+   for user in users.values():
+      if user["username"] == username and user["password"] == password:
+         return jsonify({"success": True, "role": "student", "message": "Student logged in"})
+
+   return jsonify({"success": False, "message": "Invalid username or password"}), 401
 
 @app.route("/api/admin/<username>", methods=["GET"])
 def get_admin_profile(username):
@@ -96,6 +112,7 @@ def get_admin_profile(username):
    if username in admins:
       return jsonify(admins[username])
    return jsonify({"error": "Admin not found"}), 404
+
 
 @app.route("/api/admin/<username>", methods=["POST"])
 def update_admin_profile(username):
@@ -106,6 +123,7 @@ def update_admin_profile(username):
       save_json(ADMINS_FILE, admins)
       return jsonify({"success": True, "message": "Profile updated successfully"})
    return jsonify({"success": False, "message": "Admin not found"}), 404
+
 
 @app.route("/api/upload-profile-pic/<username>", methods=["POST"])
 def upload_profile_pic(username):
@@ -125,11 +143,17 @@ def upload_profile_pic(username):
       if username in admins:
             admins[username]["profilePic"] = f"/static/uploads/{filename}"
             save_json(ADMINS_FILE, admins)
-            return jsonify({"success": True, "message": "Profile picture uploaded", "profilePic": f"/static/uploads/{filename}"})
+            return jsonify(
+               {
+                  "success": True,
+                  "message": "Profile picture uploaded",
+                  "profilePic": f"/static/uploads/{filename}",
+               }
+            )
       else:
             return jsonify({"success": False, "message": "Account not found"}), 404
    return jsonify({"success": False, "message": "Invalid file type"}), 400
 
+
 if __name__ == "__main__":
    app.run(debug=True)
-
