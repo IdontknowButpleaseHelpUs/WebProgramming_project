@@ -1,37 +1,58 @@
 {
-   "course1": {
-      "courseid": "96011111",
-      "title": "Probability Model and Data Analysis",
-      "description": "Dive into probability models and learn data analysis techniques."
-   },
-   "course2": {
-      "courseid": "96011112",
-      "title": "Computer Architecture and Organization",
-      "description": "Explore computer architecture concepts and organization principles."
-   },
-   "course3": {
-      "courseid": "96011113",
-      "title": "Web Programming",
-      "description": "Understand web development technologies and best practices."
-   },
-   "course4": {
-      "courseid": "96011114",
-      "title": "Data Structure and Algorithms",
-      "description": "Master the fundamentals of data structures and algorithm design."
-   },
-   "course5": {
-      "courseid": "96011115",
-      "title": "Operating System",
-      "description": "Learn the concepts of operating systems and how to use them effectively."
-   },
-   "course6": {
-      "courseid": "96011122",
-      "title": "Database Management",
-      "description": "Learn how to manage and analyze databases."
-   },
-   "course7": {
-      "courseid": "96011123",
-      "title": "Artificial Intelligence",
-      "description": "Introduction to the concepts of AI and how it applies to real world problems."
-   }
+    "course1": {
+        "courseid": "96011111",
+        "title": "Probability Model and Data Analysis",
+        "description": "Dive into probability models and learn data analysis techniques.",
+        "lecturer": "Dr. Somchai W.",
+        "credit": 1,
+        "schedule": "Mon 9:00 AM - 12:00 PM"
+    },
+    "course2": {
+        "courseid": "96011112",
+        "title": "Computer Architecture and Organization",
+        "description": "Explore computer architecture concepts and organization principles.",
+        "lecturer": "Prof. Anong K.",
+        "credit": 3,
+        "schedule": "Tue 1:00 PM - 4:00 PM"
+    },
+    "course3": {
+        "courseid": "96011113",
+        "title": "Web Programming",
+        "description": "Understand web development technologies and best practices.",
+        "lecturer": "Dr. Prasert L.",
+        "credit": 3,
+        "schedule": "Wed 9:00 AM - 12:00 PM"
+    },
+    "course4": {
+        "courseid": "96011114",
+        "title": "Data Structure and Algorithms",
+        "description": "Master the fundamentals of data structures and algorithm design.",
+        "lecturer": "Dr. Natcha S.",
+        "credit": 3,
+        "schedule": "Thu 1:00 PM - 4:00 PM"
+    },
+    "course5": {
+        "courseid": "96011115",
+        "title": "Operating System",
+        "description": "Learn the concepts of operating systems and how to use them effectively.",
+        "lecturer": "Assoc. Prof. Kittipong T.",
+        "credit": 3,
+        "schedule": "Fri 9:00 AM - 12:00 PM"
+    },
+    "course6": {
+        "courseid": "96011122",
+        "title": "Database Management",
+        "description": "Learn how to manage and analyze databases.",
+        "lecturer": "Dr. Arun P.",
+        "credit": 3,
+        "schedule": "Mon 1:00 PM - 4:00 PM"
+    },
+    "course7": {
+        "courseid": "96011123",
+        "title": "Artificial Intelligence",
+        "description": "Introduction to the concepts of AI and how it applies to real world problems.",
+        "lecturer": "Prof. Wannee C.",
+        "credit": 3,
+        "schedule": "Tue 9:00 AM - 12:00 PM"
+    }
 }
