@@ -61,14 +61,20 @@
                status.textContent = data.message;
                status.style.color = 'green';
 
-               localStorage.setItem('username', username);
-               localStorage.setItem('role', data.role);
-               console.log(data.role);
+               localStorage.setItem("loggedUser", JSON.stringify({
+                  username,
+                  role: data.role,
+                  name: data.name || username, 
+                  courses: data.courses || []  
+               }));
+               console.log(`Logged in as ${data.role}`);
                setTimeout(() => {
                   if (data.role === "admin") {
                      window.location.href = "../admin/admin.html";
                   } else if (data.role === "student") {
-                     window.location.href = "../user/userDashboard.html";
+                     window.location.href = "../student/userDashboard.html";
+                  } else if (data.role === "lecturer") {
+                     window.location.href = "../lecturer/lecturerDashboard.html";
                   }
                }, 1000);
             } else {

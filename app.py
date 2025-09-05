@@ -6,17 +6,24 @@ import os
 import uuid
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
-CORS(app, resources={r"/api/*": {"origins": "*"}}, allow_headers=["Content-Type"], supports_credentials=True)
+CORS(
+   app,
+   resources={r"/api/*": {"origins": "*"}},
+   allow_headers=["Content-Type"],
+   supports_credentials=True,
+)
 
 COURSES_FILE = "database/courses.json"
 USERS_FILE = "database/users.json"
 ADMINS_FILE = "database/admins.json"
+LECTURERS_FILE = "database/lecturers.json"
 UPLOAD_FOLDER = os.path.join(app.static_folder, "uploads")
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
+
 
 def load_json(filename):
    if os.path.exists(filename):
@@ -88,23 +95,44 @@ def get_users():
    users = load_json(USERS_FILE)
    return jsonify(users)
 
-@app.route("/api/login", methods=["GET","POST"])
+
+@app.route("/api/login", methods=["GET", "POST"])
 def login():
    data = request.json
    username = data.get("username")
    password = data.get("password")
-   
+
    admins = load_json(ADMINS_FILE)
    for admin in admins.values():
       if admin["username"] == username and admin["password"] == password:
-         return jsonify({"success": True, "role": "admin", "message": "Admin logged in"})
+            return jsonify(
+               {"success": True, "role": "admin", "message": "Admin logged in"}
+            )
 
+   lecturers = load_json(LECTURERS_FILE)
+   for lecturer in lecturers.values():
+      if lecturer["username"] == username and lecturer["password"] == password:
+            return jsonify(
+               {
+                  "success": True,
+                  "role": "lecturer",
+                  "message": "Lecturer logged in",
+                  "name": lecturer.get("name", username),
+                  "courses": lecturer.get("courses", []),
+               }
+            )
    users = load_json(USERS_FILE)
    for user in users.values():
       if user["username"] == username and user["password"] == password:
-         return jsonify({"success": True, "role": "student", "message": "Student logged in"})
-
+         return jsonify({
+               "success": True,
+               "role": "student",
+               "message": "Student logged in",
+               "name": user.get("name", username),
+               "courses": user.get("courses", [])
+         })
    return jsonify({"success": False, "message": "Invalid username or password"}), 401
+
 
 @app.route("/api/admin/<username>", methods=["GET"])
 def get_admin_profile(username):
