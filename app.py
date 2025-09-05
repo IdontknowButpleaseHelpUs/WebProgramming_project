@@ -14,7 +14,7 @@ CORS(
 )
 
 COURSES_FILE = "database/courses.json"
-USERS_FILE = "database/users.json"
+STUDENTS_FILE = "database/students.json"
 ADMINS_FILE = "database/admins.json"
 LECTURERS_FILE = "database/lecturers.json"
 UPLOAD_FOLDER = os.path.join(app.static_folder, "uploads")
@@ -92,7 +92,7 @@ def delete_course(courseid):
 
 @app.route("/api/users", methods=["GET"])
 def get_users():
-   users = load_json(USERS_FILE)
+   users = load_json(STUDENTS_FILE)
    return jsonify(users)
 
 
@@ -121,7 +121,7 @@ def login():
                   "courses": lecturer.get("courses", []),
                }
             )
-   users = load_json(USERS_FILE)
+   users = load_json(STUDENTS_FILE)
    for user in users.values():
       if user["username"] == username and user["password"] == password:
          return jsonify({
