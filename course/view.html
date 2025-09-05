@@ -42,7 +42,8 @@
          <div class="homework-section">
             <h3>Homework & Files</h3>
             <ul id="homeworkList">
-               <li>No homework uploaded yet <li>
+               <li>No homework uploaded yet
+               <li>
             </ul>
          </div>
       </div>
@@ -64,13 +65,35 @@
       document.getElementById('courseDescription').textContent = params.description || 'Course Description';
 
       document.getElementById('backButton').addEventListener('click', function () {
-         window.history.back();
+         if (loggedUser.role === "student") {
+            window.location.href = "../user/userDashboard.html";
+         } else if (loggedUser.role === "lecturer") {
+            window.location.href = "../lecturer/lecturerDashboard.html";
+         }
       });
    </script>
    <script>
       document.addEventListener("DOMContentLoaded", () => {
+         const loggedUser = JSON.parse(localStorage.getItem("loggedUser"));
+
+         if (!loggedUser) {
+            alert("Login first!");
+            window.location.href = "../login/login.html";
+            return;
+         }
+
+         const headerRight = document.querySelector(".right-header-items");
+         headerRight.innerHTML = `
+            <span id="welcomeUser" style="margin-right: 10px; font-weight: bold;">
+               Welcome, ${loggedUser.name || loggedUser.username}!
+            </span>
+            <img src="../assets/user.png" alt="pfp picture" class="pfp">
+            <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down" id="dropdown">
+         `;
+
+
          const params = new URLSearchParams(window.location.search);
-         const courseId = params.get("id"); // this is the id we sent
+         const courseId = params.get("id");
 
          if (!courseId) {
             alert("No course ID provided!");
@@ -97,7 +120,6 @@
             window.history.back();
          });
       });
-      // Example: we will fetch homework later; for now, add dummy items
       const homeworkList = document.getElementById("homeworkList");
       const dummyFiles = [
          { title: "Homework 1 - Probability", link: "#" },
@@ -105,7 +127,7 @@
          { title: "Assignment 2 - Data Analysis", link: "#" }
       ];
 
-      homeworkList.innerHTML = ""; // clear placeholder
+      homeworkList.innerHTML = "";
       dummyFiles.forEach(file => {
          const li = document.createElement("li");
          li.innerHTML = `${file.title} <a href="${file.link}" target="_blank">Download</a>`;
