@@ -6,6 +6,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1" />
    <title>GoEdu-Clone</title>
    <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
@@ -15,7 +16,7 @@
          <div class="right-header-items">
             <a class="login-button" href="login/login.html">Login</a>
             <img src="assets/user.png" alt="pfp picture" class="pfp">
-            <img src="assets/down-arrow.png" alt="drop down arrow" class="drop-down">
+            <img src="assets/down-arrow.png" alt="drop down arrow" class="drop-down" id="dropdown">
          </div>
       </div>
       <div class="main">
@@ -23,6 +24,10 @@
             <img src="assets/SE_logo.png" alt="logo" class="logo">
             <p class="compulsory-text"><span>S</span>oftware <span
                   style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering</p>
+         </div>
+         <div class="dropdown-content" id="dropdown-content">
+            <a href="#" class="setting">Settings</a>
+            <a href="#" class="idk"></a>
          </div>
          <div class="background-scroll">
             <img src="assets/left-arrow.png" alt="left arrow" class="left-arrow">
@@ -58,21 +63,38 @@
                <ul>
                   <li>Line: <a href="https://line.me/ti/p/your-line-id" target="_blank" rel="noopener">your-line-id</a>
                   </li>
-                  <li>Phone Tel: <a href="tel:+66000000000">+66 0000 0000</a></li>
+                  <li>Phone: <a href="tel:+66000000000">+66 0000 0000</a></li>
                   <li>Email: <a href="mailto:example@gmail.com">example@gmail.com</a></li>
                </ul>
             </div>
+
+            <div class="location">
+               <h4>Location</h4>
+               <p>
+                  <li>
+                  สำนักงานบริหารวิชาการและคุณภาพการศึกษา<br>
+                  อาคาร 6 ชั้น 3 สจล.<br>
+                  แขวงลาดกระบัง เขตลาดกระบัง<br>
+                  กรุงเทพมหานคร 10520
+                  </li>
+               </p>
+            </div>
+
             <div class="get-social">
                <h4>Get Social</h4>
                <div class="social-icons">
                   <a href="https://www.facebook.com/kmitlofficial" target="_blank" rel="noopener" aria-label="Facebook">
                      <img src="assets/facebook.png" alt="Facebook" />
+                     <span>KMITL</span>
                   </a>
                   <a href="https://x.com/Kmitlofficial" target="_blank" rel="noopener" aria-label="Twitter">
                      <img src="assets/twitter.png" alt="Twitter" />
+                     <span>KMITL</span>
                   </a>
-                  <a href="https://www.instagram.com/kmitlofficial" target="_blank" rel="noopener" aria-label="Instagram">
+                  <a href="https://www.instagram.com/kmitlofficial" target="_blank" rel="noopener"
+                     aria-label="Instagram">
                      <img src="assets/instagram.png" alt="Instagram" />
+                     <span>kmitlofficial</span>
                   </a>
                </div>
             </div>
@@ -82,6 +104,7 @@
             Copyright © 2020 - Developed by สำนักงานบริหารวิชาการและคุณภาพการศึกษา. Powered by Moodle
          </p>
       </div>
+
 
    </div>
    <script src="script.js"></script>

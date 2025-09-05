@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Settings</title>
+   <link rel="stylesheet" href="../style.css">
+   <script src="../setting/script-setting.js" defer></script>
+</head>
+
+<body>
+   <div class="header">
+      <img src="../assets/menu.png" alt="menu logo" class="menu-logo">
+      <div class="right-header-items">
+         <p id="logged-username"></p>
+         <img src="../assets/user.png" alt="pfp picture" class="pfp" id="pfp">
+         <img src="../assets/down-arrow.png" alt="drop down arrow" class="drop-down" id="dropdown">
+      </div>
+   </div>
+   <div class="compulsory">
+      <img src="../assets/SE_logo.png" alt="logo" class="logo">
+      <p class="compulsory-text"><span>S</span>oftware <span
+            style="color: rgb(255, 111, 0); text-shadow: 2px 2px 5px rgb(0, 0, 0);">E</span>ngineering</p>
+      <p id="welcome-text" style="font-size:30px; margin-top:3rem; margin-left:30rem;"></p>
+   </div>
+   <div class="dropdown-content" id="dropdown-content">
+      <a href="#" class="goback">Go back</a>
+      <a href="#" class="logout">Log out</a>
+   </div>
+   <div class="settings-container">
+      <h2 id="account-title">Account Settings</h2>
+
+      <div class="profile-section">
+         <div class="profile-picture">
+            <img src="../assets/user.png" alt="Profile Picture" id="profile-img">
+            <input type="file" id="upload-profile" accept=".png, .jpg, .jpeg" hidden>
+            <button id="change-pfp-btn">Change Picture</button>
+         </div>
+
+         <div class="account-details">
+            <div class="detail-row">
+               <label>First Name:</label>
+               <input type="text" id="first-name" readonly>
+            </div>
+            <div class="detail-row">
+               <label>Last Name:</label>
+               <input type="text" id="last-name" readonly>
+            </div>
+            <div class="detail-row">
+               <label>Email:</label>
+               <input type="email" id="email" data-field="email" placeholder="admin@example.com">
+            </div>
+            <div class="detail-row">
+               <label>Location:</label>
+               <input type="text" id="location" data-field="location" placeholder="New York">
+            </div>
+            <div class="detail-row">
+               <label>Country:</label>
+               <input type="text" id="country" data-field="country" placeholder="USA">
+            </div>
+            <div class="detail-row">
+               <label>Phone:</label>
+               <input type="text" id="phone" data-field="phone" placeholder="+1 234 567 890">
+            </div>
+            <div class="detail-row">
+               <label>Description:</label>
+               <textarea id="description" data-field="description" rows="3"
+                  placeholder="Account description..."></textarea>
+            </div>
+         </div>
+      </div>
+
+      <div class="password-section">
+         <h3>Password</h3>
+         <p>Your current password is hidden for security reasons.</p>
+         <button id="request-password-change">Request Password Change</button>
+      </div>
+
+      <div class="save-section">
+         <button id="save-changes">Save Changes</button>
+      </div>
+   </div>
+
+   <div id="password-modal" class="modal">
+      <div class="modal-content">
+         <h3>Request Password Change</h3>
+         <p>Please confirm your email to request a password reset.</p>
+         <input type="email" id="password-email" placeholder="Enter your email" required>
+         <div class="modal-actions">
+            <button id="cancel-request">Cancel</button>
+            <button id="confirm-request">Confirm</button>
+         </div>
+      </div>
+   </div>
+
+</body>
+
+</html>

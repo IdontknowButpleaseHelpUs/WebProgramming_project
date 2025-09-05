@@ -1,3 +1,6 @@
 /.venv
 /database/__pycache__
+*.png
+/database
 *.json
+/static
