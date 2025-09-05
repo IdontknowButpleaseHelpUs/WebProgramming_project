@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
    document.querySelector('.logout').addEventListener('click', (e) => {
       e.preventDefault();
-      localStorage.removeItem('adminUsername');
+      localStorage.removeItem('admin');
       setTimeout(() => window.location.href = '../login/login.html', 500);
    });
 
